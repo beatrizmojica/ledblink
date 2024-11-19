@@ -16,4 +16,11 @@ void loop() {
   digitalWrite(ledPin, LOW);
   digitalWrite(ledPin2, LOW);
   delay(500);
+
+  if (digitalRead(buttonPin) == HIGH) {
+    usbMIDI.sendNoteOn(60, 127, 1);
+    delay(5);
+  } else {
+    usbMIDI.sendNoteOff(0, 127, 1);
+  }
 }
